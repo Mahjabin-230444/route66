@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Texas Route 66 Map</title>
+
+  <link rel="icon" type="image/png" href="../shared/icons/favicon.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="../shared/common.css" />
+  <link rel="stylesheet" href="../shared/map.css" />
+</head>
+
+<body class="map-page" data-page="texas">
+
+  <nav id="sectionRibbon" class="section-ribbon"></nav>
+
+  <div class="map-shell">
+
+    <aside id="sidePanel" class="side-panel">
+      <h1 id="mapTitle" class="panel-title">Texas Route 66</h1>
+      <p id="mapSubtitle" class="panel-subtitle">Route details loading...</p>
+
+      <div class="search-box">
+        <input
+          id="searchInput"
+          class="search-input"
+          type="search"
+          placeholder="Search places, fuel, food..."
+        />
+        <div id="searchResults" class="search-results"></div>
+      </div>
+
+      <div id="placesList" class="places-list"></div>
+    </aside>
+
+    <button id="panelToggle" class="panel-toggle">←</button>
+
+    <main class="map-area">
+
+      <div class="map-controls">
+        <div class="control-block">
+          <label for="basemapSelect">Basemap</label>
+          <select id="basemapSelect">
+            <option value="carto">Carto Light</option>
+            <option value="osm">OpenStreetMap</option>
+            <option value="satellite">Satellite</option>
+            <option value="google">Google Map</option>
+          </select>
+        </div>
+
+        <div class="control-block">
+          <label for="intervalSelect">Progress Update</label>
+          <select id="intervalSelect">
+            <option value="1">Every 1 minute</option>
+            <option value="3">Every 3 minutes</option>
+            <option value="6">Every 6 minutes</option>
+            <option value="10">Every 10 minutes</option>
+          </select>
+        </div>
+
+        <button id="locationButton" class="location-btn">
+          Zoom to My Location
+        </button>
+      </div>
+
+      <div id="map"></div>
+
+      <div class="legend">
+        <h4>Legend</h4>
+        <div><span class="legend-dot type-attraction"></span> Attraction</div>
+        <div><span class="legend-dot type-food"></span> Food</div>
+        <div><span class="legend-dot type-fuel"></span> Fuel</div>
+        <hr />
+        <div><span class="legend-line"></span> Route 66</div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-labels">
+      <span>Start</span>
+      <span>Route Progress</span>
+      <span>End</span>
+    </div>
+
+    <div class="progress-bg">
+      <div id="userProgress" class="progress-fill"></div>
+      <div id="userMarker" class="user-dot"></div>
+    </div>
+
+    <div id="progressStatus" class="progress-status">
+      Waiting for location...
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="data.js"></script>
+  <script src="../shared/common.js"></script>
+  <script src="../shared/ui.js"></script>
+  <script src="../shared/search.js"></script>
+  <script src="../shared/map.js"></script>
+
+</body>
+</html>
